@@ -7,49 +7,61 @@
     <!-- Tailwind and Daisy UI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Font-Awesome -->
+    <script src="https://kit.fontawesome.com/e2208cf289.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <div class="navbar bg-base-100">
+    <header class="max-w-[82%] mx-auto">
+      <!-- Navbar -->
+        <div class="navbar bg-base-100 px-0 py-4">
             <div class="navbar-start">
               <div class="dropdown">
-                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden ps-0">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                 </div>
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                  <li><a>Item 1</a></li>
-                  <li>
-                    <a>Parent</a>
-                    <ul class="p-2">
-                      <li><a>Submenu 1</a></li>
-                      <li><a>Submenu 2</a></li>
-                    </ul>
-                  </li>
-                  <li><a>Item 3</a></li>
+                  <li><a>Home</li>
+                  <li><a>Write Blog</a></li>
+                  <li><a>Add Member</a></li>
+                  <li><a>Add Tag</a></li>
                 </ul>
               </div>
-              <a class="btn btn-ghost text-xl">daisyUI</a>
+              <a class="btn btn-ghost text-xl px-0"><img src="./images/logo.png" alt=""></a>
             </div>
-            <div class="navbar-center hidden lg:flex">
-              <ul class="menu menu-horizontal px-1">
-                <li><a>Item 1</a></li>
-                <li>
-                  <details>
-                    <summary>Parent</summary>
-                    <ul class="p-2">
-                      <li><a>Submenu 1</a></li>
-                      <li><a>Submenu 2</a></li>
-                    </ul>
-                  </details>
-                </li>
-                <li><a>Item 3</a></li>
+            <div class="navbar-end  lg:flex">
+              <ul class="menu menu-horizontal px-1 hidden lg:flex">
+                <li title="Home"><a class="p-2"><img class="w-full" src="./images/icons/Frame 2.png" alt=""></a></li>
+                <li title="Write Blog"><a class="p-2"><img class="w-full" src="./images/icons/Frame 3.png" alt=""></a></li>
+                <li title="Add Member"><a class="p-2"><img class="w-full" src="./images/icons/Frame 4.png" alt=""></a></li>
+                <li title="Add Tag"><a class="p-2"><img class="w-full" src="./images/icons/Frame 5.png" alt=""></a></li>
               </ul>
+
+              <div>
+                <a  class="btn bg-[#797DFC] text-white rounded-full w-36">Sign In</a>
+              </div>
             </div>
-            <div class="navbar-end">
-              <a class="btn">Button</a>
+            
+          </div>
+
+          <!-- Banner -->
+          <div class="hero min-h-screen bg-base-200 rounded-3xl">
+            <div class="hero-content flex-col lg:flex-row-reverse">
+              <img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" class="max-w-sm rounded-lg shadow-2xl" />
+              <div>
+                <h1 class="text-5xl font-bold">Box Office News!</h1>
+                <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                <button class="btn btn-primary">Get Started</button>
+              </div>
             </div>
           </div>
     </header>
+
+    <main>
+      
+    </main>
     
 </body>
 </html>
