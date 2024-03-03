@@ -70,7 +70,7 @@
                 <p class="text-sm  text-center lg:text-start lg:text-md py-3 lg:py-6 text-white">Share your favorite opinion and win and wp <br> forum coffee mug!</p>
                 <div class="join">
                   <input id="banner-input" class="input input-bordered join-item rounded-full" placeholder="Search here anything"/>
-                  <button id="btn-banner-input" class="btn join-item rounded-full bg-[#797DFC] text-white">Search</button>
+                  <button onclick="loadPostByCategory()" id="btn-banner-input" class="btn join-item rounded-full bg-[#797DFC] text-white">Search</button>
                 </div>
               </div>
 
@@ -108,56 +108,26 @@
           <p>Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined </p>
         </div>
 
-        <div>
-          <div class="post-container flex flex-1 gap-8">
-            <div class="card card-side bg-[#797DFC1A] shadow-xl">
-              <div class="w-24 h-24 flex justify-end items-start ml-10 mt-10 relative">
-                <figure><img class="w-24 h-24 rounded-xl" src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie"/>
-                  <div class="w-4 h-4 rounded-full bg-red-500 absolute -top-1 -right-1"></div></figure>
-              </div>
-              
-              <div class="card-body">
-                <div class="flex">
-                  <h2 class="text-sm text-black mr-5"># <span>Music</span></h2>
-                  <h2 class="text-sm text-black">Author : <span>Awlad Hossain</span></h2>
-                </div>
-                <div class="border-b-2 border-dashed pb-4">
-                  <h1 class="text-xl font-semibold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, officia!</h1>
-                  <p class="font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt corrupti aut reprehenderit.</p>
-                </div>
-                <div class="card-actions justify-between flex">
-                  <ul class="flex justify-start gap-4">
-                    <li><i class="fa-regular fa-comment"></i> <span> 1290</span></li>
-                    <li><i class="fa-regular fa-eye"></i> <span>300</span></li>
-                    <li><i class="fa-regular fa-clock"></i> <span>5</span> min</li>
-                  </ul>
-                  <div class="bg-green-500 w-7 h-7 rounded-full text-center"">
-                    <i class="fa-regular fa-envelope-open"></i>
-                  </div>
-                    
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="post-summary bg-[#797DFC1A] p-4 rounded-2xl">
-              <div class="flex justify-between">
-                <h1 class="font-semibold">Title</h1>
-                <p><i class="fa-solid fa-check-double text-green-500 mx-1"></i>Mark as read (<span>4</span>)</p>
-              </div>
-              <div class="bg-white m-3 flex justify-between items-center p-4 rounded-xl text-sm">
-                <h1 class="font-semibold max-w-[80%]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, ut?</h1>
-                <ul><li><i class="fa-regular fa-eye"></i> <span>300</span></li></ul>
-              </div>
-            </div>
-
+        <div class="flex flex-1 gap-8">
+          <div id="post-container">
+     
           </div>
 
-          
+          <div class=" bg-[#797DFC1A] p-4 rounded-2xl w-[40%]">
+            <div class="flex justify-between">
+              <h1 class="font-semibold">Title</h1>
+              <p><i class="fa-solid fa-check-double text-green-500 mx-1"></i>Mark as read (<span>4</span>)</p>
+            </div>
+            <div  id="post-summary">
+            
+            </div>
+          </div>
         </div>
       </section>
       
     </main>
     
+
+    <script src="./js/main.js"></script>
 </body>
 </html>
