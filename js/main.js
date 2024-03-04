@@ -147,7 +147,7 @@ const displayLatestPosts = data =>{
           <img class="w-full rounded-full" src="${element.profile_image}" alt="" srcset="">
         </div>
         <div>
-          <h2>${element.author?.name}</h2>
+          <h2 class="font-bold">${element.author?.name}</h2>
           <p>${element.author?.designation || 'Unknown'}</p>
         </div>
       </div>
