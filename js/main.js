@@ -30,12 +30,12 @@ const displayPostsByCategory = posts =>{
         const newPost = document.createElement('div');
         
 
-        newPost.classList = `card card-side bg-[#797DFC1A] shadow-xl mb-8`;
+        newPost.classList = `card w-[100%] lg:card-side bg-[#797DFC1A] shadow-xl mb-8`;
 
        
         if(post.isActive){
             newPost.innerHTML = `
-            <div class="card w-[100%] card-side bg-[#797DFC1A] shadow-xl">
+            
               <div class="w-24 h-24 flex justify-end items-start ml-10 mt-10 relative">
                 <figure id="imageContainer"><img class="w-24 h-24 rounded-xl" src=${post.image} alt="Movie"/>
                   <div id="active-status" class="w-4 h-4 bg-green-500 rounded-full absolute -top-1 -right-1"></div>
@@ -64,13 +64,13 @@ const displayPostsByCategory = posts =>{
                     
                   </ul>
                 </div>
-            </div>`;
+            `;
 
         }
 
         else{
             newPost.innerHTML = `
-            <div class="card w-[100%] card-side bg-[#797DFC1A] shadow-xl">
+            
               <div class="w-24 h-24 flex justify-end items-start ml-10 mt-10 relative">
                 <figure id="imageContainer"><img class="w-24 h-24 rounded-xl" src=${post.image} alt="Movie"/>
                   <div id="active-status" class="w-4 h-4 bg-red-500 rounded-full absolute -top-1 -right-1"></div>
@@ -99,7 +99,7 @@ const displayPostsByCategory = posts =>{
                     
                   </ul>
                 </div>
-            </div>`;
+            `;
         }
 
 
@@ -118,7 +118,7 @@ const addToSummary = async(id) =>{
 
     for(const posting of allPostings){
        if(id === posting.id){
-        console.log(posting)
+    
         addedToSummary.push(posting)
        }
 }
@@ -131,6 +131,9 @@ const displaySummary = addedToSummary =>{
 
     const summaryContainer = document.getElementById('post-summary');
     summaryContainer.textContent ='';
+
+    const totalRead = document.getElementById('total-read');
+    totalRead.innerText = addedToSummary.length;
 
     for(const summary of addedToSummary){
         const newSummary = document.createElement('div');
