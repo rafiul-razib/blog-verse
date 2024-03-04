@@ -1,12 +1,19 @@
 // All Posts
 
 const loadPostByCategory = async() => {
+    showSpinner2(true)
     const searchInput = document.getElementById('banner-input');
     const searchText = searchInput.value;
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`)
     const data = await res.json();
     const posts = data.posts;
-    displayPostsByCategory(posts);
+    setTimeout(()=>{
+      displayPostsByCategory(posts)
+    }, 2000);
+
+    setTimeout(()=>{
+      showSpinner2(false)
+    },2000)
 }
 
 
@@ -76,6 +83,7 @@ const displayPostsByCategory = posts =>{
 const addedToSummary = []
 
 const addToSummary = async(id) =>{
+    showSpinner(true)
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
     const data = await res.json();
     const allPostings = data.posts;
@@ -86,8 +94,16 @@ const addToSummary = async(id) =>{
         addedToSummary.push(posting)
        }
 }
+    setTimeout(()=>{
+      displaySummary(addedToSummary)
+    }, 2000)
+    
 
-    displaySummary(addedToSummary)
+    
+    setTimeout(()=>{
+      showSpinner(false)
+    }, 2000)
+    
 }
 
 
@@ -99,6 +115,8 @@ const displaySummary = addedToSummary =>{
     const totalRead = document.getElementById('total-read');
     totalRead.innerText = addedToSummary.length;
 
+    
+
     for(const summary of addedToSummary){
         const newSummary = document.createElement('div');
 
@@ -109,8 +127,16 @@ const displaySummary = addedToSummary =>{
         <h1 class="font-semibold max-w-[70%]">${summary.title}</h1>
         <ul><li><i class="fa-regular fa-eye"></i> <span>${summary.view_count}</span></li></ul>`
 
+
         summaryContainer.appendChild(newSummary);
+
+
+        
     }
+
+    
+
+    
     
 }
 
@@ -129,7 +155,7 @@ const displayLatestPosts = data =>{
   const latestPostContainer = document.getElementById('card-container');
 
   for(const element of data){
-    console.log(element);
+    // console.log(element);
     const latestPost = document.createElement('div');
     latestPost.classList = 'card bg-base-100 shadow-xl';
 
@@ -156,3 +182,31 @@ const displayLatestPosts = data =>{
     latestPostContainer.appendChild(latestPost)
   }
 }
+
+// Spinner
+
+const showSpinner = dataLoadStarted =>{
+  const spinner = document.getElementById('spinner');
+ 
+  if(dataLoadStarted){
+    spinner.classList.remove('hidden')
+  }
+  else{
+    spinner.classList.add('hidden')
+  }
+}
+
+const showSpinner2 = dataLoadStarted =>{
+  const spinner2 = document.getElementById('spinner2');
+ 
+  if(dataLoadStarted){
+    spinner2.classList.remove('hidden')
+  }
+  else{
+    spinner2.classList.add('hidden')
+  }
+}
+
+
+
+// showSpinner()

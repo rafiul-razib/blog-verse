@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro Forum</title>
+    <title>BlogVerse</title>
     <!-- Tailwind and Daisy UI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -44,7 +44,7 @@
                   <li><a>Add Tag</a></li>
                 </ul>
               </div>
-              <a class="btn btn-ghost text-xl px-0"><img src="./images/logo.png" alt=""></a>
+              <a class="btn btn-ghost text-xl px-0"><h1 class="text-3xl lg:text-5xl font-bold lg:font-extrabold">BlogVerse</h1></a>
             </div>
             <div class="navbar-end  lg:flex">
               <ul class="menu menu-horizontal px-1 hidden lg:flex">
@@ -66,7 +66,7 @@
             <div class="hero-content flex-col lg:flex-row lg:justify-around w-full lg:p-24">
               
               <div>
-                <h1 class="text-4xl text-center lg:text-start lg:text-6xl font-bold text-white">Welcome to the <br><span class="bg-gradient-to-r from-sky-500 to-indigo-700 text-transparent bg-clip-text">ReTro</span> Forum</h1>
+                <h1 class="text-4xl text-center lg:text-start lg:text-6xl font-bold text-white">Welcome to the <br><span class="bg-gradient-to-r from-sky-500 to-indigo-700 text-transparent bg-clip-text">BlogVerse</span> Forum</h1>
                 <p class="text-sm  text-center lg:text-start lg:text-md py-3 lg:py-6 text-white">Share your favorite opinion and win and wp <br> forum coffee mug!</p>
                 <div class="join">
                   <input id="banner-input" class="input input-bordered join-item rounded-full" placeholder="Search here anything"/>
@@ -109,6 +109,15 @@
           <p>Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined </p>
         </div>
 
+        <!-- Spinner -->
+
+      <div id="spinner2" class="text-center mt-8 hidden">
+        <span class="loading loading-bars loading-xs"></span>
+        <span class="loading loading-bars loading-sm"></span>
+        <span class="loading loading-bars loading-md"></span>
+        <span class="loading loading-bars loading-lg"></span>
+      </div>
+
         <div class="flex flex-col lg:flex-row gap-8">
           <div id="post-container">
      
@@ -126,6 +135,15 @@
         </div>
       </section>
 
+      <!-- Spinner -->
+
+      <div id="spinner" class="text-center mt-8 hidden">
+        <span class="loading loading-bars loading-xs"></span>
+        <span class="loading loading-bars loading-sm"></span>
+        <span class="loading loading-bars loading-md"></span>
+        <span class="loading loading-bars loading-lg"></span>
+      </div>
+
       <!-- Join forum -->
 
       <section class="my-14">
@@ -141,6 +159,7 @@
         </div>
       </section>
 
+      <!-- Latest Posts -->
       <section class="pb-16">
         <div class="text-center my-4 lg:my-6 max-w-[80%] lg:max-w-[50%] mx-auto">     
           <h1 class="text-3xl font-bold">Latest Posts</h1>
@@ -157,7 +176,7 @@
     <footer>
       <footer class="footer footer-center p-10 bg-[#797DFC1A] ">
         <aside class="max-w-[80%] lg:max-w-[50%]">
-          <img src="./images/logo.png" alt="" srcset="">
+          <h1 class="text-3xl lg:text-5xl font-extrabold">BlogVerse</h1>
           <p class="font-normal">
             Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC
           </p> 
