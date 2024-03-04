@@ -1,3 +1,5 @@
+// All Posts
+
 const loadPostByCategory = async() => {
     const searchInput = document.getElementById('banner-input');
     const searchText = searchInput.value;
@@ -33,12 +35,11 @@ const displayPostsByCategory = posts =>{
         newPost.classList = `card w-[100%] lg:card-side bg-[#797DFC1A] shadow-xl mb-8`;
 
        
-        if(post.isActive){
-            newPost.innerHTML = `
+        newPost.innerHTML = `
             
               <div class="w-24 h-24 flex justify-end items-start ml-10 mt-10 relative">
                 <figure id="imageContainer"><img class="w-24 h-24 rounded-xl" src=${post.image} alt="Movie"/>
-                  <div id="active-status" class="w-4 h-4 bg-green-500 rounded-full absolute -top-1 -right-1"></div>
+                  <div id="active-status" class="w-4 h-4 ${post.isActive?'bg-green-500':'bg-red-500'} rounded-full absolute -top-1 -right-1"></div>
                   </figure>
               </div>
               
@@ -65,43 +66,6 @@ const displayPostsByCategory = posts =>{
                   </ul>
                 </div>
             `;
-
-        }
-
-        else{
-            newPost.innerHTML = `
-            
-              <div class="w-24 h-24 flex justify-end items-start ml-10 mt-10 relative">
-                <figure id="imageContainer"><img class="w-24 h-24 rounded-xl" src=${post.image} alt="Movie"/>
-                  <div id="active-status" class="w-4 h-4 bg-red-500 rounded-full absolute -top-1 -right-1"></div>
-                  </figure>
-              </div>
-              
-              
-              <div class="card-body">
-                <div class="flex">
-                  <h2 class="text-sm text-black mr-5"># <span>${post.category}</span></h2>
-                  <h2 class="text-sm text-black">Author : <span>${post.author.name}</span></h2>
-                </div>
-                <div class="border-b-2 border-dashed pb-4">
-                  <h1 class="text-xl font-semibold">${post.title}</h1>
-                  <p class="font-normal">${post.description}</p>
-                </div>
-                <div class="card-actions justify-between flex">
-                  <ul class="flex justify-start gap-4">
-                    <li><i class="fa-regular fa-comment"></i> <span>${post.comment_count}</span></li>
-                    <li><i class="fa-regular fa-eye"></i> <span>${post.view_count}</span></li>
-                    <li><i class="fa-regular fa-clock"></i> <span>${post.posted_time}</span> min</li>
-                  </ul>
-                  <div onclick="addToSummary(${post.id})" class="bg-green-500 w-7 h-7 rounded-full text-center"">
-                    <i class="fa-regular fa-envelope-open"></i>
-                  </div>
-                    
-                  </ul>
-                </div>
-            `;
-        }
-
 
             postContainer.appendChild(newPost);
            
@@ -148,4 +112,47 @@ const displaySummary = addedToSummary =>{
         summaryContainer.appendChild(newSummary);
     }
     
+}
+
+// Latest Posts
+
+const loadLatestPosts = async() =>{
+  const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+  const data = await res.json();
+  displayLatestPosts(data)
+}
+
+loadLatestPosts();
+
+const displayLatestPosts = data =>{
+  // console.log(data)
+  const latestPostContainer = document.getElementById('card-container');
+
+  for(const element of data){
+    console.log(element);
+    const latestPost = document.createElement('div');
+    latestPost.classList = 'card bg-base-100 shadow-xl';
+
+    latestPost.innerHTML = `
+    <figure class="p-6"><img class="rounded-2xl" src="${element.cover_image}" alt="Shoes" /></figure>
+    <div class="card-body pt-0">
+      <div class="flex items-center gap-3">
+        <i class="fa-regular fa-calendar-days"></i>
+        <h4>${element.author?.posted_date || 'No publish date'}</h4>
+      </div>
+      <h2 class="card-title ">${element.title}</h2>
+      <p>${element.description}</p>
+      <div class="card-actions flex gap-4 justify-start items-center pt-4">
+        <div class="w-16 h-16">
+          <img class="w-full rounded-full" src="${element.profile_image}" alt="" srcset="">
+        </div>
+        <div>
+          <h2>${element.author?.name}</h2>
+          <p>${element.author?.designation || 'Unknown'}</p>
+        </div>
+      </div>
+    </div>`
+
+    latestPostContainer.appendChild(latestPost)
+  }
 }
